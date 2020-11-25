@@ -8,8 +8,6 @@ from subprocess import Popen, PIPE, DEVNULL
 import subprocess
 import time
 
-# Catch sigquit and sigterm?
-
 class SclangSubprocess:
     def __init__(self, encoding="utf-8"):
         dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -52,10 +50,11 @@ class SclangSubprocess:
         self.shuttingDown = False
         self.lock = threading.RLock()
         
-        def sigint_handler(signum, frame):
+        def sig_handler(signum, frame):
             self.shutdown() 
         
-        signal.signal(signal.SIGINT, sigint_handler)
+        signal.signal(signal.SIGINT, sig_handler)
+        signal.signal(signal.SIGTERM, sig_handler)
 
     def __receive_output(self):
         while True:
@@ -82,7 +81,7 @@ class SclangSubprocess:
         while True:
             line = self.window_queue.get()
  
-            if line == None: break
+            if line is None: break
             else: 
                 self.__sendToWindow(line)
 
@@ -98,6 +97,7 @@ class SclangSubprocess:
             print("sclang interpeter shutdown. Exiting "
             "from worker thread.")
             self.sclang.wait()
+            print("sclang shutdown")
             self.window.wait()
             os._exit(1)
         else:

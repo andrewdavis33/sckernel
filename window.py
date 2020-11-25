@@ -4,18 +4,20 @@ import sys
 import threading
 import queue
 
-# TODO: How to handle if at all, keyboard exceptions
-
 WINDOW_INTERVAL = 40 # Time in ms between screen refresh of text
 
 def addToQueue(q):
     while True:
-        line = sys.stdin.readline()
-        if line != "" and line != "quit":
-            q.put(line)
-        else:
-            q.put("")
+        try:
+            line = sys.stdin.readline()
+        except:
+            q.put("") # Trigger quit from main thread
             break
+
+        q.put(line)
+        if line == "":
+            break
+    print("Exiting reader thread.")
 
 def destroyWindow():
     root.destroy()
@@ -42,6 +44,7 @@ def openingLine(q):
 # Main code to run
 q = queue.Queue()
 t = threading.Thread(target=addToQueue, args=(q,))
+t.daemon = True
 root = tk.Tk()
 root.resizable(True, True)
 textbox = scrolledtext.ScrolledText(root)
@@ -52,6 +55,4 @@ root.after(0, openingLine, q)
 print("Starting worker thread to process stdin and start main graphics loop...")
 t.start()
 root.mainloop()
-t.join()
-print("Worker thread joined.")
 print("Exiting...")

@@ -11,7 +11,7 @@ class SCKernel(Kernel):
     language_info = {
         'name':'sclang',    
         'mimetype':'text',
-        'codemirror_mode':'smalltalk', # for now use smalltalk syntax highlighting
+        'codemirror_mode':'smalltalk' # for now use smalltalk syntax highlighting
     }
     banner = "SuperCollider Kernel"
 
