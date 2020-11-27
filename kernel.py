@@ -1,7 +1,5 @@
 from ipykernel.kernelbase import Kernel
-from pexpect import replwrap
-from sclangSub import *
-import pexpect
+from .sclangSub import *
 
 class SCKernel(Kernel):
     implementation = "SuperCollider"
@@ -37,7 +35,6 @@ class SCKernel(Kernel):
     
     def do_complete(self, code, cursor_pos):
         pass
-
 
 if __name__ == '__main__':
     from ipykernel.kernelapp import IPKernelApp
