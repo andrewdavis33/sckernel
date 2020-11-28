@@ -1,3 +1,6 @@
 __pycache__
 ignored/
 moveToModule
+build/
+dist/
+sckernel.egg-info/
