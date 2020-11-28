@@ -19,8 +19,8 @@ a new SuperCollider notebook using sclang.
 
 For the console frontend, you can run it by adding `--kernel sckernel`.
 
-You can also run a SuperCollider REPL with a post window by executing the following:
+You can also run a SuperCollider REPL with a post window by running
 
 ```
-python -m sckernel.sclangSub
+python sclangSub.py
 ```
