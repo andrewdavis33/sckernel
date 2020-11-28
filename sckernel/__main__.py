@@ -1,4 +1,5 @@
-from ipykernel.kernelapp import IPKernelApp
-from . import SCKernel
+from .sclangSub import *
 
-IPKernelApp.launch_instance(kernel_class=SCKernel)
+sclang = SclangSubprocess()
+while True:
+    sclang.get_code()

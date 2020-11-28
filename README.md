@@ -22,5 +22,5 @@ For the console frontend, you can run it by adding `--kernel sckernel`.
 You can also run a SuperCollider REPL with a post window by running
 
 ```
-python sclangSub.py
+python -m sckernel
 ```
