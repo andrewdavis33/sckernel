@@ -6,6 +6,10 @@ while the Notebook front end handles input.
 
 Syntax highlighting in the Notebook uses smalltalk as a default.
 
+## Requirements
+
+In order for sckernel to work, the binary `sclang` must be in your $PATH.
+
 ## Installation
 
 To install `sckernel` from PyPI:
