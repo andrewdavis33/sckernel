@@ -6,6 +6,10 @@ while the Notebook front end handles input.
 
 Syntax highlighting in the Notebook uses smalltalk as a default.
 
+At this stage sckernel has only been tested on MacOS and is only guaranteed
+to work on that operating system.  sckernel **may** work on other platforms
+but has not been tested yet.
+
 ## Requirements
 
 In order for sckernel to work, the binary `sclang` must be in your $PATH.
