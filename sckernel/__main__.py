@@ -1,4 +1,3 @@
-
 from ipykernel.kernelapp import IPKernelApp
 from . import SCKernel
 
