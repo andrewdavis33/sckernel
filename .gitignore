@@ -4,3 +4,5 @@ moveToModule
 build/
 dist/
 sckernel.egg-info/
+other_documentation/
+.ipynb_checkpoints/
