@@ -27,7 +27,7 @@ By default the kernel will be install in the per-user kernel registry,
 equivalent to `python -m sckernel.install --user`.
 
 To install in the root directory or for an environment like Anaconda or
-venv, run instead `python -m sckernel.install --sys.prefix`.
+venv, run instead `python -m sckernel.install --sys-prefix`.
 
 ## Using SuperCollider kernel
 
