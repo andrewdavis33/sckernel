@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import sys
+import sckernel
 
 from jupyter_client.kernelspec import KernelSpecManager
 from IPython.utils.tempdir import TemporaryDirectory
@@ -17,6 +18,12 @@ def install_my_kernel_spec(user=True, prefix=None):
         os.chmod(td, 0o755) # Starts off as 700, not user readable
         with open(os.path.join(td, 'kernel.json'), 'w') as f:
             json.dump(kernel_json, f, sort_keys=True)
+
+        sckernel_path = os.path.dirname(sckernel.__file__);
+        with open(os.path.join(td, 'kernel.js'), 'w') as dst:
+            with open(os.path.join(sckernel_path, 'kernel.js')) as src:
+                src_content = src.read()
+            dst.write(src_content)
 
         print('Installing Jupyter kernel spec')
         KernelSpecManager().install_kernel_spec(td, 'sckernel', user=user, prefix=prefix)
