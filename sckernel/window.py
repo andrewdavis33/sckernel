@@ -54,6 +54,7 @@ q = queue.Queue()
 t = threading.Thread(target=addToQueue, args=(q,))
 t.daemon = True
 root = tk.Tk()
+root.geometry("600x500") # initial size but can be resizable
 root.resizable(True, True)
 
 # Font buttons
@@ -74,7 +75,9 @@ separator = ttk.Separator(root, orient="horizontal")
 separator.pack(side="top", fill="x")
 
 # Textbox
-textbox = scrolledtext.ScrolledText(root, font=font)
+# Adding the width=1 and height=1 is necessary so that resizing font
+# does not change the window size
+textbox = scrolledtext.ScrolledText(root, width=1, height=1, font=font)
 textbox.pack(expand=True, fill="both")
 root.after(0, openingLine, q)
 
