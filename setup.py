@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sckernel", # Replace with your own username
-    version="0.2.0",
+    version="0.2.1",
     author="Andrew Davis",
     author_email="andrewdavis33@gmail.com",
     description="A SuperCollider kernel for Jupyter Notebooks",
-    long_description=long_description,
+    long_description= long_description,
+    long_description_content_type = "text/markdown",
     url="https://github.com/andrewdavis33/sckernel",
-    packages=setuptools.find_packages(),
     install_requires=[
         'jupyter_client', 'IPython', 'ipykernel'
     ],
@@ -20,5 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    packages=setuptools.find_packages(),
     python_requires='>=3.7',
+    include_package_data=True,
 )
