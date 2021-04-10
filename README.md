@@ -4,7 +4,8 @@ sckernel is a Jupyter Notebook kernel for SuperCollider's sclang.  sckernel
 launches a post window to display output just as the SuperCollider IDE does
 while the Notebook front end handles input.
 
-Syntax highlighting in the Notebook uses smalltalk as a default.
+Syntax highlighting in the Notebook uses codemirror with a mode defined in
+kernel.js.
 
 sckernel has been tested on both MacOS and Windows 10.
 
