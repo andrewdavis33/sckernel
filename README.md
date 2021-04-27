@@ -77,9 +77,9 @@ should run this step to ensure that sckernel uses the correct instance of Python
 
 The typical paths for sclang are as follows but may be different on your machine
 
-OS X: `"/Applications/SuperCollider/SuperCollider.app/Contents/Resources/sclang"`
-Linux: `"/usr/local/bin/sclang"`
-Windows: `"C:\Program Files\SuperCollider\sclang.exe"`
+OS X: `"/Applications/SuperCollider/SuperCollider.app/Contents/Resources/sclang"`  
+Linux: `"/usr/local/bin/sclang"`  
+Windows: `"C:\Program Files\SuperCollider\sclang.exe"`  
 
 ## Using SuperCollider kernel
 
