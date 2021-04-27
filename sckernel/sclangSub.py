@@ -10,36 +10,50 @@ import time
 
 class SclangSubprocess:
     def __init__(self, encoding="utf-8"):
+        self.encoding = encoding
+        
+        # Ensure window.py is in the same folder
         dir_path = os.path.dirname(os.path.realpath(__file__))
         window_path = os.path.join(dir_path, "window.py")
         if not os.path.exists(window_path):
             raise("window.py is not in the same directory as" +
             "sclangSub.py")
 
-        self.encoding = encoding
-        self.window_queue = queue.Queue()
+        # Get paths to python and sclang binaries
+        config_path = os.path.join(dir_path, "paths.cfg")
+        if not os.path.exists(config_path):
+          py_path = "python"
+          sc_path = "sclang"
+        else:
+          with open(config_path, "r") as c:
+            py_path = c.readline().split("=")[1].strip()
+            sc_path = c.readline().split("=")[1].strip()
 
+        # Start window subprocess and sclang subprocess
         try: 
             self.window = Popen(
-                ["python", window_path], 
+                [py_path, window_path], 
                 stdin=PIPE, stdout=DEVNULL, stderr=DEVNULL, bufsize=0
             )
         except:
             raise RuntimeError("Could not open window.py.  Make sure"
-            + " that 'python' is in $PATH.")
+            + " that the path to Python is correct using sckernel.config.")
 
         try:
             self.sclang = Popen(
-                # IDE mode suppresses sc3> prompt text and input
-                ["sclang", "-i", "sckernel"],
+                # IDE mode (i.e., -i) suppresses sc3> prompt text and input
+                # The use of "sckernel" is to provide a name
+                # See Platform.ideName for more
+                [sc_path, "-i", "sckernel"],
                 stdin=PIPE, stdout=PIPE, stderr=DEVNULL, bufsize=0
             )
         except:
             self.window.kill()
             self.window.wait()
             raise RuntimeError("Could not open sclang.  Check to make "
-            + "sure sclang is in $PATH")
-
+            + "sure that the path of sclang is correct using sckernel.config.")
+        
+        self.window_queue = queue.Queue()
         self.receiver = threading.Thread(target=self.__receive_output)
         self.receiver.daemon = True
         self.processor = threading.Thread(target=self.__process_output)
