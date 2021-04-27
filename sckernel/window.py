@@ -5,6 +5,7 @@ from tkinter import ttk
 import sys
 import threading
 import queue
+import signal
 
 WINDOW_INTERVAL = 40 # Time in ms between screen refresh of text
 
@@ -80,6 +81,13 @@ separator.pack(side="top", fill="x")
 textbox = scrolledtext.ScrolledText(root, width=1, height=1, font=font)
 textbox.pack(expand=True, fill="both")
 root.after(0, openingLine, q)
+
+# Install signal handler
+def sig_handler(signum, frame):
+  destroyWindow()
+        
+signal.signal(signal.SIGINT, sig_handler)
+signal.signal(signal.SIGTERM, sig_handler)
 
 # Run display
 print("Starting worker thread to process stdin and start main graphics loop...")

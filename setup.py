@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sckernel", # Replace with your own username
-    version="0.2.1",
+    version="0.3.2",
     author="Andrew Davis",
     author_email="andrewdavis33@gmail.com",
     description="A SuperCollider kernel for Jupyter Notebooks",

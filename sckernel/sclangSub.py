@@ -156,7 +156,13 @@ class SclangSubprocess:
             print("Shutting down...")
             print("Closing input to sclang stdin and waiting for" +
             " subprocesses to close.")
-            self.sclang.stdin.close()
+            
+            # The line self.sclang.stdin.close() has been replaced
+            # because sclang on Windows does not exit when stdin
+            # is closed unlike on MacOS.
+            
+            # self.sclang.stdin.close()
+            self.send_code("1.exit")
             self.sclang.wait()
             print("Sclang subprocess closed.")
             self.window.wait()

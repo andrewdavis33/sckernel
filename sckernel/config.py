@@ -14,7 +14,7 @@ def configure():
     help="Path to sclang binary.", default="sclang")
   args = ap.parse_args()
  
-  with open("paths.cfg", "w") as w:
+  with open(os.path.join(sckernel_dir, "paths.cfg"), "w") as w:
     w.write("python=" + args.python + "\n")
     w.write("sclang=" + args.sclang + "\n")
 
