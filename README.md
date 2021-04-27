@@ -13,9 +13,9 @@ sckernel has been tested on both MacOS and Windows 10.
 
 Users need a working installation of SuperCollider and Jupyter Notebook.
 There are several ways to install Jupyter Notebook as detailed at
-<www.jupyter.org/install>.  The quickest way is by downloading Anaconda.
+www.jupyter.org/install.  The quickest way is by downloading Anaconda.
 
-sckernel requires Python 3.5 or higher.  Please be sure if you download
+sckernel requires Python 3.5 or higher.  Please be sure if you downloaded
 the Notebook through Anaconda that it is for Python 3.5 or higher.
 
 ## Installation
@@ -35,26 +35,24 @@ configuration files (called a kernelspec).  There are three options:
 
 1)  To install locally to your user account, run
 
-```
-python -m sckernel.install
-```
+    ```
+    python -m sckernel.install
+    ```
 
-The above line is also equivalent to `python -m sckernel.install --user`.
+    The above line is also equivalent to `python -m sckernel.install --user`.
 
 2) To install in the root directory or for an environment like Anaconda or
 venv, run 
 
-`python -m sckernel.install --sys-prefix`.
+    `python -m sckernel.install --sys-prefix`.
 
 3) To install to another location (not recommended), run
 
-```
-python -m sckernel.install --prefix <your_prefix_path>
-```
+    ```
+    python -m sckernel.install --prefix <your_prefix_path>
+    ```
 
-sckernel's kernelspec will be installed in {PREFIX}/share/jupyter/kernels/.
-
-If 
+    sckernel's kernelspec will be installed in {PREFIX}/share/jupyter/kernels/.
 
 ### Step 3: Configure sckernel to find your Python and sclang binaries
 
@@ -75,7 +73,7 @@ you can chose to omit just one of the `--python` or `--sclang` flags if you woul
 like to provide a path to only one.  Most users with multiple installations of Python
 should run this step to ensure that sckernel uses the correct instance of Python.
 
-The typical paths for sclang are as follows but may be different on your machine
+The typical paths for sclang are as follows but may be different on your machine.
 
 OS X: `"/Applications/SuperCollider/SuperCollider.app/Contents/Resources/sclang"`  
 Linux: `"/usr/local/bin/sclang"`  
@@ -86,7 +84,7 @@ Windows: `"C:\Program Files\SuperCollider\sclang.exe"`
 When opening Jupyter notebook, select from the <i>New</i> menu SC_Kernel to create
 a new SuperCollider notebook using sclang.
 
-For the console frontend, you can run it `jupyter console --kernel sckernel`.
+For the console frontend, you can run `jupyter console --kernel sckernel`.
 
 ## Converting from Notebooks to SuperCollider files (.scd)
 
