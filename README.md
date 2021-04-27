@@ -44,7 +44,9 @@ configuration files (called a kernelspec).  There are three options:
 2) To install in the root directory or for an environment like Anaconda or
 venv, run 
 
-    `python -m sckernel.install --sys-prefix`.
+    ```
+    python -m sckernel.install --sys-prefix
+    ```
 
 3) To install to another location (not recommended), run
 
