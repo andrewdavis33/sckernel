@@ -84,7 +84,7 @@ OS X: `"/Applications/SuperCollider/SuperCollider.app/Contents/Resources/sclang"
 Linux: `"/usr/local/bin/sclang"`  
 Windows: `"C:\Program Files\SuperCollider\sclang.exe"`  
 
-## Step-By-Step Videos
+### Step-By-Step Videos
 
 Below are two video installation guides for installing sckernel with Anaconda on
 a Windows and MacOS machine.  This can be especially helpful if you are not 
