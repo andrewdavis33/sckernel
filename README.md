@@ -9,6 +9,9 @@ kernel.js.
 
 sckernel has been tested on both MacOS and Windows 10.
 
+For an overview of Jupyter Notebook and sckernel, please check out the
+video linked [here](https://youtu.be/8xYmhyGZz2k).
+
 ## Requirements
 
 Users need a working installation of SuperCollider and Jupyter Notebook.
@@ -80,6 +83,15 @@ The typical paths for sclang are as follows but may be different on your machine
 OS X: `"/Applications/SuperCollider/SuperCollider.app/Contents/Resources/sclang"`  
 Linux: `"/usr/local/bin/sclang"`  
 Windows: `"C:\Program Files\SuperCollider\sclang.exe"`  
+
+## Step-By-Step Videos
+
+Below are two video installation guides for installing sckernel with Anaconda on
+a Windows and MacOS machine.  This can be especially helpful if you are not 
+comfortable working on the command line.
+
+Windows: <https://youtu.be/q4vBP-uIQ9I>     
+MacOS: <https://youtu.be/-0ent-GxyZU>    
 
 ## Using SuperCollider kernel
 
